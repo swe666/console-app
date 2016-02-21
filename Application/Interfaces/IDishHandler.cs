@@ -2,6 +2,6 @@
 {
     interface IDishHandler
     {
-        IOrder ParseOrder(string input);
+        Order ParseOrder(string input);
     }
 }

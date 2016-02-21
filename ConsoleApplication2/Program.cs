@@ -10,10 +10,9 @@ namespace ConsoleApplication2
         static void Main(string[] args)
         {
             DishHandler dh = new DishHandler();
-            List<IOrder> orders = new List<IOrder>();
             while (true)
             {
-                orders.Add(dh.ParseOrder(Console.ReadLine()));
+                Console.WriteLine(dh.FormatOrder(dh.ParseOrder(Console.ReadLine())));
             }
         }
     }
