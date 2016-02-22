@@ -22,7 +22,7 @@ namespace Tests
         {
             DishRepository repo = new DishRepository();
             string name = repo.GetDishName("morning", 2);
-            Assert.AreEqual("steak", name);
+            Assert.AreEqual("toast", name);
         }
     }
 }
