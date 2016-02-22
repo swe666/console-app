@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practicum", "ConsoleApplication2\Practicum.csproj", "{E585DF61-8951-421A-BAA9-E2FC2404B659}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "ClassLibrary1\Tests.csproj", "{319E0317-085C-433C-B0CB-43F3D65F3885}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "ClassLibrary1\UnitTests.csproj", "{319E0317-085C-433C-B0CB-43F3D65F3885}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{A7ABE02E-9584-4AB4-91B5-3A95852B12DF}"
 EndProject

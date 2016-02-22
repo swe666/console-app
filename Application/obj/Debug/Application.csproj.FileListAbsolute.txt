@@ -3,3 +3,5 @@ C:\Users\Daniel\Documents\Visual Studio 2015\Projects\ConsoleApplication2\Applic
 C:\Users\Daniel\Documents\Visual Studio 2015\Projects\ConsoleApplication2\Application\bin\Debug\Application.pdb
 C:\Users\Daniel\Documents\Visual Studio 2015\Projects\ConsoleApplication2\Application\obj\Debug\Application.dll
 C:\Users\Daniel\Documents\Visual Studio 2015\Projects\ConsoleApplication2\Application\obj\Debug\Application.pdb
+C:\Users\Daniel\Documents\Visual Studio 2015\Projects\ConsoleApplication2\Application\bin\Debug\nunit.framework.dll
+C:\Users\Daniel\Documents\Visual Studio 2015\Projects\ConsoleApplication2\Application\bin\Debug\nunit.framework.xml

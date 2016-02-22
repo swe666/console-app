@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="nunit.framework, Version=3.0.5813.39031, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.0.1\lib\net45\nunit.framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -42,11 +46,18 @@
   <ItemGroup>
     <Compile Include="Dish.cs" />
     <Compile Include="DishHandler.cs" />
-    <Compile Include="Interfaces\IDish.cs" />
+    <Compile Include="DishRepository.cs" />
+    <Compile Include="Formats.cs" />
+    <Compile Include="Interfaces\IDishRepository.cs" />
     <Compile Include="Interfaces\IDishHandler.cs" />
     <Compile Include="Interfaces\IOrder.cs" />
+    <Compile Include="Interfaces\IOrderHandler.cs" />
     <Compile Include="Order.cs" />
+    <Compile Include="OrderHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

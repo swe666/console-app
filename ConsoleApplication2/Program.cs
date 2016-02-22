@@ -3,17 +3,44 @@ using System.Collections.Generic;
 using Application;
 using Application.Interfaces;
 
-namespace ConsoleApplication2
+namespace Application
 {
     class Program
     {
         static void Main(string[] args)
         {
-            DishHandler dh = new DishHandler();
+            DishHandler dh = GetDishHandler();
+            OrderHandler oh = GetOrderHandler();
+            Formats formats = GetFormats();
             while (true)
             {
-                Console.WriteLine(dh.FormatOrder(dh.ParseOrder(Console.ReadLine())));
+                string input = Console.ReadLine();
+                Order order = dh.ParseOrder(input);
+                if (oh.ValidateOrder(order))
+                {
+                    string formattedOrder = formats.FormatOrder(order);
+                    Console.WriteLine(formattedOrder);
+                }
+                else
+                {
+                    Console.WriteLine("error");
+                }
             }
+        }
+
+        static DishHandler GetDishHandler()
+        {
+            return new DishHandler(new DishRepository());
+        }
+
+        static Formats GetFormats()
+        {
+            return new Formats();
+        }
+
+        static OrderHandler GetOrderHandler()
+        {
+            return new OrderHandler();
         }
     }
 }

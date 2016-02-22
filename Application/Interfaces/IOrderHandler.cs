@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Application.Interfaces
 {
-    interface IOrder
+    public interface IOrderHandler
     {
-        List<Dish> Dishes { get; set; }
+        bool ValidateOrder(Order order);
     }
 }

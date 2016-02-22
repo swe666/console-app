@@ -7,80 +7,65 @@ namespace Application
 {
     public class DishHandler
     {
+        private readonly IDishRepository _repository;
+
+        public DishHandler(IDishRepository repository)
+        {
+            _repository = repository;
+        }
 
         public Order ParseOrder(string input)
         {
             Order order = new Order();
-            string[] dishTypeStrings = input.Split(',');
-            foreach(string dishType in dishTypeStrings)
+            List<string> dishTypes = new List<string>(input.Split(','));
+            string menuType = GetMenuType(dishTypes.First());
+            dishTypes.RemoveAt(0);
+            if (menuType != null)
             {
-                string dishName = "";
-                int dishInt = 0;
-                int.TryParse(dishType, out dishInt);
-                try
+                foreach (string dishType in dishTypes)
                 {
-                    dishName = GetDishName(dishInt);
+                    string dishName = "";
+                    int dishInt = 0;
+                    int.TryParse(dishType, out dishInt);
+                    try
+                    {
+                        dishName = _repository.GetDishName(menuType, dishInt);
+                    }
+                    catch (ApplicationException e)
+                    {
+                        return null;
+                    }
+                    Dish dish = _repository.GetDish(order, dishName);
+                    if (dish == null)
+                    {
+                        dish = new Dish {DishName = dishName, Count = 1};
+                        order.Dishes.Add(dish);
+                    }
+                    else
+                    {
+                        dish.Count++;
+                    }
                 }
-                catch (ApplicationException e)
-                {
-                    return null;
-                }
-                Dish dish = order.Dishes.SingleOrDefault(x => x.DishName == dishName);
-                if (dish == null)
-                {
-                    dish = new Dish {DishName = dishName, Count = 1};
-                    order.Dishes.Add(dish);
-                }
-                else
-                {
-                    dish.Count++;
-                }
-            }
 
-            return order;
-        }
-
-        public string FormatOrder(Order order)
-        {
-            string orders = "";
-            if (order == null)
-            {
-                return "error";
+                return order;
             }
             else
             {
-                foreach (var dish in order.Dishes.Select((value, i) => new { i, value }))
-                {
-                    orders += dish.value.DishName;
-                    if (dish.value.Count > 1)
-                    {
-                        orders += "(x" + dish.value.Count + ")";
-                    }
-                    if (order.Dishes.Count != dish.i + 1)
-                    {
-                        orders += ", ";
-                    }
-                }
-                return orders;
+                return null;
             }
-            
         }
 
-        public string GetDishName(int dishInt)
+        public string GetMenuType(string input)
         {
-            switch (dishInt)
+            switch (input)
             {
-                case 1:
-                    return "steak";
-                case 2:
-                    return "potato";
-                case 3:
-                    return "wine";
-                case 4:
-                    return "cake";
+                case "morning":
+                    return "morning";
+                case "evening":
+                    return "evening";
                 default:
-                    throw new ApplicationException("Unknown dish");
+                    return null;
             }
-        }
+        } 
     }
 }
