@@ -24,5 +24,35 @@ namespace Tests
             string name = repo.GetDishName("morning", 2);
             Assert.AreEqual("toast", name);
         }
+
+        [Test]
+        public void TestIsValidMorningOrder()
+        {
+            OrderHandler oh = new OrderHandler();
+            string input = "morning,1,2,3,3";
+            Assert.AreEqual(true, oh.ValidateOrder(input));
+        }
+
+        [Test]
+        public void TestIsInvalidMorningOrder()
+        {
+            OrderHandler oh = new OrderHandler();
+            string input = "morning,1,2,2,3,3";
+            Assert.AreEqual(false, oh.ValidateOrder(input));
+        }
+        [Test]
+        public void TestIsValidEveningOrder()
+        {
+            OrderHandler oh = new OrderHandler();
+            string input = "evening,1,2,2,3,4";
+            Assert.AreEqual(true, oh.ValidateOrder(input));
+        }
+        [Test]
+        public void TestIsInvalidEveningOrder()
+        {
+            OrderHandler oh = new OrderHandler();
+            string input = "evening,1,2,2,3,3,4";
+            Assert.AreEqual(false, oh.ValidateOrder(input));
+        }
     }
 }

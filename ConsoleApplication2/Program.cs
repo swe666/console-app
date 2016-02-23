@@ -15,9 +15,9 @@ namespace Application
             while (true)
             {
                 string input = Console.ReadLine();
-                Order order = dh.ParseOrder(input);
-                if (oh.ValidateOrder(order))
+                if (oh.ValidateOrder(input))
                 {
+                    Order order = dh.ParseOrder(input);
                     string formattedOrder = formats.FormatOrder(order);
                     Console.WriteLine(formattedOrder);
                 }

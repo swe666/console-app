@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Application.Interfaces
 {
-    public interface IOrderHandler
+    interface IFormats
     {
-        bool ValidateOrder(string input);
+        string FormatOrder(Order order);
     }
 }

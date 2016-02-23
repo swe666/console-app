@@ -50,6 +50,7 @@
     <Compile Include="Formats.cs" />
     <Compile Include="Interfaces\IDishRepository.cs" />
     <Compile Include="Interfaces\IDishHandler.cs" />
+    <Compile Include="Interfaces\IFormats.cs" />
     <Compile Include="Interfaces\IOrder.cs" />
     <Compile Include="Interfaces\IOrderHandler.cs" />
     <Compile Include="Order.cs" />
